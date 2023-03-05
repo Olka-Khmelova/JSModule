@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-day todos shcedule</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/65559c71d3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/styles.css">
+
+</head>
+<body>
+    <header>
+        <nav class="fixed-nav">
+            <h1 class="current-day"></h1>
+            <button type="button" class="new-task-btn">
+                Add new task
+            </button>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Your todos for today </h1>
+
+        <div class="task-container"></div>
+        <div class="modal-back"></div>
+        <div class="add-task-form">
+            <form class="form" id="tasksForm">
+                <button class="close-add-form">x</button>
+                <h2 class="form-title">Create Event</h2>
+                <div class="form-input">
+                    <label class="form-label">
+                        Title
+                        <input class="title-input" type="text" placeholder="New Event...">
+                    </label>
+                    <label class="form-label">
+                        Start
+                        <input class="start-input" type="time" >
+                    </label>
+                    <label class="form-label">
+                        Duration
+                        <input class="duration-input" type="number" placeholder="Minutes">
+                    </label>
+                    <label class="form-label">
+                        Color
+                        <input type="color" class="color-input" value="#6E9ECF">
+                    </label>
+                    <button type="submit" class="form-button">Save</button>
+                </div>
+            </form>
+         </div>
+         <div class="banner-container">
+        </div>
+
+    </div>
+
+    <script src="/events.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

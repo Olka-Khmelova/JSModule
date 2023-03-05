@@ -1,0 +1,311 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14 px;
+}
+button {
+    cursor: pointer;
+}
+header .fixed-nav {
+    width: 80%;
+    height: 60px;
+    position: fixed;
+    padding: 0px 40px;
+    z-index: 100;
+    top: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+header .new-task-btn {
+    width: auto;
+    height: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+
+}
+header h1 {
+    font-style: italic;
+    line-height: 1.5;
+}
+.container {
+    padding-top: 70px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.container h1 {
+
+    font-size: 24px;
+    line-height: 54px;
+}
+.time-block-hour {
+    font-weight: 200;
+    font-size: 16px;
+    height: 60px;
+    padding-left: 2px;
+    cursor: pointer;
+}
+.time-block-hour:hover {
+position: relative;
+    border-radius: 5px;
+    border: 1px solid #6e9fcf7a;
+    
+}
+.time-block-hour:hover::after {
+    content: "+";
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: right;
+}
+.time-block-hour.accent {
+    font-size: 12px;
+}
+.task-container {
+    padding-left: 4px;
+
+    text-align: left;
+    margin: 0 auto;
+    position: relative;
+    
+}
+.task-container.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+/* .time-block-hour::before {
+content: " ";
+display: block;
+border-top: 1px solid #E2ECF5;
+} */
+.time-block-hour.accent::before{
+    display: none;
+}
+.event-block {
+    position: absolute;
+    background-color: #E2ECF5;
+    border-left: 3px solid #6e9fcf80;
+    font-size: 14px;
+    cursor: pointer;
+}
+.time-block-hour::before {
+    content: " ";
+    display: block;
+    border-top: 1px solid #E2ECF5;
+    }
+/* .event-block:hover {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: 5px;
+    border: 1px solid #6e9fcf7a;
+    
+}
+.event-block:hover::after {
+    content: "+";
+    display: block;
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 10px;
+    text-align: right;
+} */
+.event-block > p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.event-block_focused{
+  border: 3px solid #6e9fcf7a;
+
+}
+.task-btn {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 1px solid #6e9fcf7a;
+    margin-right: 1px;
+    cursor: pointer;
+}
+.event-block .buttons{
+    display: none;
+    width: 67%;
+}
+.event-block:hover {
+    display: flex;
+    justify-content: space-around;
+}
+.event-block:hover .buttons {
+    display: inline;
+}
+.icons {
+    width: 5px;
+    height: 5px;
+}
+.edit-btn:hover {
+    background-color: blue;
+    color: white;
+}
+.done-btn:hover,
+.done-btn.active {
+    background-color: green;
+    color: white;
+}
+.delete-btn:hover {
+    background-color: red;
+    color: white;
+}
+.modal {
+    min-width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-style: italic;
+}
+/* .modal .show-modal {
+    display: block;
+} */
+.modal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal h2 {
+    padding-right: 18px;
+    font-size: 18px;
+    line-height: 22px;
+}
+.modal .buttons {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.task-btn-modal{
+    width: auto;
+    height: 30px;
+    padding: 7px;
+    background-color: #ffffff;
+    border: 1px solid #6e9fcf7a;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-right: 1px;
+    cursor: pointer;
+}
+.accent-modal-text {
+    display: inline-block;
+    margin: 10px;
+    background-color: #E2ECF5;
+    border: 1px solid #6e9fcf80;
+    padding: 2px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: bolder;
+
+}
+.add-task-form,
+.modal-back {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+}
+.add-task-form-active,
+.change-task-form-active,
+.modal-active {
+    display: flex;
+}
+.form,
+.change-form{
+    position: relative;
+    display: none;
+    min-width: 300px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border: 2x solid #6e9fcf7a;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+.close-add-form {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 16px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.form-input {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    font-style: italic;
+}
+.form-input input {
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.form-label {
+    padding: 10px;
+}
+.form-button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 80%;
+    margin: 15px auto;
+    height: 30px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.form-title {
+    font-size: 24px;
+    padding-top: 15px;
+    font-weight: bolder;
+}  
+.banner-container {
+    display: none;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #E2ECF5;
+    border: 1px solid #6e9fcf80;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.banner-container .active {
+    display: block;
+}
+
+.banner-container>h1 {
+    font-size: 24px;
+    line-height: 38px;
+    color: #000;
+}
+@media screen and (max-width: 900px) {
+    header .fixed-nav {
+        width: 100%;
+    }
+}
