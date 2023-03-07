@@ -160,125 +160,6 @@ class RenderToDos {
             );
 
         const modalElement = document.querySelector(".modal-back");
-
-//modal for info and chamges of task
-        // actContainer.onclick = (e) => {
-
-        //     const mainContainer = document.createElement("div");
-        //     const inputContainer = document.createElement("form")
-        //         let titleInput = document.createElement("input");
-        //         let startInput = document.createElement("input");
-        //         let durationInput = document.createElement("input");
-        //         // let endInput = document.createElement("input");
-        //         let colorInput = document.createElement("input");
-        //         let formBtn = document.createElement("button");
-        //         let closeBtn = document.createElement("button");
-        //         const formInput = document.createElement("div");
-        //         let formTitle = document.createElement("h1");
-        //         let labelTitle = document.createElement("form-label");
-        //         let labelStart = document.createElement("form-label");
-        //         let labelDuration = document.createElement("form-label");
-        //         let labelColor = document.createElement("form-label");
-                
-        //         labelTitle.classList.add("form-label");
-        //         labelStart.classList.add("form-label");
-        //         labelDuration.classList.add("form-label");
-        //         labelColor.classList.add("form-label");
-        //          mainContainer.classList.add("change-task-form");
-        //         inputContainer.classList.add("form", "change-form")
-        //         titleInput.classList.add("title-input");
-        //         startInput.classList.add("start-input");
-        //         durationInput.classList.add("duration-input");
-        //         // endInput.classList.add("end-input");
-        //         colorInput.classList.add("color-input");
-        //         formBtn.classList.add("form-button");
-        //         closeBtn.classList.add("close-add-form");
-        //         formInput.classList.add("form-input");
-        //         formTitle.classList.add("form-title");
-
-        //         labelTitle.innerText = "Title";
-        //         labelStart.innerText = "Start";
-        //         labelDuration.innerText = "Duration";
-        //         labelColor.innerText = "Color";
-
-        //         formTitle.innerText = "Make your changes";
-        //         closeBtn.innerText = "x";
-        //         formBtn.innerText = "Submit"
-        //         titleInput.type = "text";
-        //         startInput.type = "time";
-        //         durationInput.type = "number";
-        //         // endInput;
-        //         colorInput.type = "color";
-        //         formBtn.type = "submit";
-        //         closeBtn.type = "button";
-        //         titleInput.value = task.title;
-        //         durationInput.value = task.duration;
-        //         colorInput.value = "#E2ECF5";
-
-        //         colorInput.addEventListener("change", (e) => {
-        //            return actContainer.setAttribute(
-        //                 "style", 
-        //                 `
-        //                 background: ${colorInput.value}; 
-        //                 border-left: 3px solid ${colorInput.value}80;
-        //                 `
-        //             )
-
-        //         })
-        //         startInput.value = `${padTo2Digits(task.startHours)}:${padTo2Digits(task.startMinutes)}`;
-        //         formBtn.onclick = (e) => {
-
-        //             let hours = startInput.value.slice(0, 2);
-        //             let minutes = startInput.value.slice(3);
-        //             minutes = +minutes;
-                
-        //             let startTime = (+hours - 8) * 60 + minutes;
-
-        //             events.forEach(event => {
-        //                 if(event.title === task.title && event.start === task.start) {
-        //                     console.log(event)
-        //                     event.title = titleInput.value;
-        //                     event.start = startTime;
-        //                     event.duration = +durationInput.value;
-
-        //                 }
-        //             })
-        //             actContainer.setAttribute(
-        //                 "style", 
-        //                 `
-        //                 background: ${colorInput.value}; 
-        //                 border-left: 3px solid ${colorInput.value}80;
-        //                 `
-        //             );
-        //             this.toDoList = new ToDosList(events);
-                        
-        //             // this.renderToDos = new RenderToDos(this.toDoList, this.renderHours);
-        //             this.renderToDoList(this.toDoList.toDosArr);
-                    
-        //             modalElement.classList.remove("modal-active");
-        //             mainContainer.innerHTML = " ";
-        //             e.preventDefault();
-        //         }
-        //         // inputs logic
-        //         closeBtn.onclick = (e) => {
-        //             e.preventDefault();
-        //             // mainContainer.classList.remove('change-task-form-active');
-        //             modalElement.classList.remove("modal-active");
-        //             inputContainer.style.display = "none";
-        //         }
-
-        //         inputContainer.style.display = "block";
-        //         labelTitle.append(titleInput);
-        //         labelStart.append(startInput);
-        //         labelDuration.append(durationInput);
-        //         labelColor.append(colorInput);
-        //         formInput.append(labelTitle, labelStart, labelDuration, labelColor, formBtn);
-        //         inputContainer.append(formTitle, formInput, closeBtn);
-        //         mainContainer.append(inputContainer)
-        //         modalElement.append(mainContainer);
-        //         modalElement.classList.add("modal-active");
-        //         console.log((task.duration * 2), (task.start * 2), task.width, (task.start * 2), task.leftX);
-        // }
         
         const doneBtn = actContainer.querySelector(".done-btn");
         const text = actContainer.querySelector("p");
@@ -390,15 +271,9 @@ class RenderToDos {
                         durationInput.value = duration;
                         colorInput.value = "#E2ECF5";
                         startInput.value = `${padTo2Digits(startHours)}:${padTo2Digits(startMinutes)}`;
-                        colorInput.addEventListener("change", (e) => {
-                           return el.setAttribute(
-                                "style", 
-                                `
-                                background: ${colorInput.value}; 
-                                border-left: 3px solid ${colorInput.value}80;
-                                `
-                            )
-        
+                        colorInput.addEventListener("change", () => {
+                            el.style.background = `${colorInput.value}50`;
+                            el.style.borderLeft = `3px solid ${colorInput.value}`
                         })
                         deleteBtn.onclick = (e) => {
                             e.stopPropagation;
@@ -408,6 +283,7 @@ class RenderToDos {
                             this.toDoList = new ToDosList(events);
                     
                             this.renderToDoList(this.toDoList.toDosArr);
+                            toDos = new ToDosList(events);
                             modalElement.classList.remove("modal-active");
                             mainContainer.innerHTML = " ";
                         }
@@ -427,13 +303,7 @@ class RenderToDos {
         
                                 }
                             })
-                            el.setAttribute(
-                                "style", 
-                                `
-                                background: ${colorInput.value}; 
-                                border-left: 3px solid ${colorInput.value}80;
-                                `
-                            );
+
 
                             const newList = new ToDosList(events);
                                 
@@ -528,6 +398,7 @@ class Actions {
                     events.push(newAct);
                     this.toDoListArr = new ToDosList(events);
                     this.renderToDos = new RenderToDos(this.toDoListArr, this.renderTimeGrid);
+                    toDos = new ToDosList(events);
 
                     durationInput.value = null;
                     titleInput.value = "";
@@ -550,33 +421,30 @@ class ActiveNotifications {
 
     timerForBanner() {
         this.activeBannerWindow.innerHTML = '';
+        let time = 1000;
         setInterval(() => {
             let currentDate = new Date();  
-            console.log(currentDate.getMinutes())            
-
+            console.log(currentDate.getMinutes())           
             toDos.toDosArr.forEach(item => {
-   
                 if (currentDate.getHours() === item.startHours && currentDate.getMinutes() === item.startMinutes) {
                     this.activeBannerWindow.classList.add('active');
                     this.activeBannerWindow.innerHTML = `
                        <h1>Event "${item.title}" started</h1>
                     `;
-                }
-            })    
-        }, 1000);
+                console.log("bingo");
+                } 
+                })
+        }, time);
         setInterval(() => {
             this.activeBannerWindow.classList.remove('active');
-        }, 60000);
-        return null;
+            console.log("bye")
+        }, 80000);
+
     }
-
-
 }
-let arr = document.querySelectorAll(".event-block");
-console.log([...arr])
 
 const renderTimeGrid = new TimeGrid;
-const toDos = new ToDosList(events);
+let toDos = new ToDosList(events);
 let renderToDos = new RenderToDos(toDos, renderTimeGrid);
 const actions = new Actions(toDos, renderToDos, renderTimeGrid);
 const notifications = new ActiveNotifications(toDos);
