@@ -138,7 +138,7 @@ border-top: 1px solid #E2ECF5;
 }
 .event-block .buttons{
     display: none;
-    width: 67%;
+    width: 35%;
 }
 .event-block:hover {
     display: flex;
@@ -152,18 +152,15 @@ border-top: 1px solid #E2ECF5;
     height: 5px;
 }
 .edit-btn:hover {
-    background-color: blue;
+    background-color: green;
     color: white;
 }
 .done-btn:hover,
 .done-btn.active {
-    background-color: green;
+    background-color: blue;
     color: white;
 }
-.delete-btn:hover {
-    background-color: red;
-    color: white;
-}
+
 .modal {
     min-width: 200px;
     padding: 10px;
@@ -259,6 +256,7 @@ border-top: 1px solid #E2ECF5;
     align-items: flex-start;
     padding: 10px;
     font-style: italic;
+    margin-bottom: 15px;
 }
 .form-input input {
     font-family: 'Open Sans', sans-serif;
@@ -269,13 +267,30 @@ border-top: 1px solid #E2ECF5;
 .form-label {
     padding: 10px;
 }
-.form-button {
+.form-button,
+.delete-btn {
+    display: inline-block;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     width: 80%;
-    margin: 15px auto;
+    margin:  auto;
     height: 30px;
+    border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 149, 255, 0.55);
+    border: none;
+    margin-bottom: 15px;
+}
+.delete-btn {
+    color: #ffffff;
+    background-color: rgba(255, 0, 0, 0.594);
+}
+.form-button:hover {
+    background-color: blue;
+
+}
+.delete-btn:hover {
+background: red;
 }
 .form-title {
     font-size: 24px;
@@ -283,19 +298,21 @@ border-top: 1px solid #E2ECF5;
     font-weight: bolder;
 }  
 .banner-container {
+    transition: 0.33s;
     display: none;
     width: 300px;
-    height: 150px;
-    position: absolute;
-    top: 100px;
-    right: 50px;
+    height: auto;
+    position: fixed;
+    top: 0;
+    right: 10px;
+    margin-top: 100px;
     border-radius: 10px;
     text-align: center;
     background-color: #E2ECF5;
     border: 1px solid #6e9fcf80;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
-.banner-container .active {
+.banner-container.active {
     display: block;
 }
 
