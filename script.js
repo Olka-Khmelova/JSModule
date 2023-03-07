@@ -158,8 +158,6 @@ class RenderToDos {
             border-left: 3px solid #6e9fcf80;
             `
             );
-
-        const modalElement = document.querySelector(".modal-back");
         
         const doneBtn = actContainer.querySelector(".done-btn");
         const text = actContainer.querySelector("p");
@@ -169,6 +167,7 @@ class RenderToDos {
             text.style.textDecoration = "line-through";
 
         }
+
         function changeDone() {
             task.toggleDone();
             doneBtn.classList.toggle("active");
@@ -184,8 +183,6 @@ class RenderToDos {
             e.stopPropagation();
         }
         
-        
-
         return actContainer;
         }
 
@@ -219,128 +216,119 @@ class RenderToDos {
                     const modalElement = document.querySelector(".modal-back");
                     const mainContainer = document.createElement("div");
                     const inputContainer = document.createElement("form")
-                        let titleInput = document.createElement("input");
-                        let startInput = document.createElement("input");
-                        let durationInput = document.createElement("input");
-                        // let endInput = document.createElement("input");
-                        let colorInput = document.createElement("input");
-                        let formBtn = document.createElement("button");
-                        let closeBtn = document.createElement("button");
-                        let deleteBtn = document.createElement("button");
-                        const formInput = document.createElement("div");
-                        let formTitle = document.createElement("h1");
-                        let labelTitle = document.createElement("form-label");
-                        let labelStart = document.createElement("form-label");
-                        let labelDuration = document.createElement("form-label");
-                        let labelColor = document.createElement("form-label");
+                    let titleInput = document.createElement("input");
+                    let startInput = document.createElement("input");
+                    let durationInput = document.createElement("input");
+                    // let endInput = document.createElement("input");
+                    let colorInput = document.createElement("input");
+                    let formBtn = document.createElement("button");
+                    let closeBtn = document.createElement("button");
+                    let deleteBtn = document.createElement("button");
+                    const formInput = document.createElement("div");
+                    let formTitle = document.createElement("h1");
+                    let labelTitle = document.createElement("form-label");
+                    let labelStart = document.createElement("form-label");
+                    let labelDuration = document.createElement("form-label");
+                    let labelColor = document.createElement("form-label");
                         
-                        labelTitle.classList.add("form-label");
-                        labelStart.classList.add("form-label");
-                        labelDuration.classList.add("form-label");
-                        labelColor.classList.add("form-label");
-                         mainContainer.classList.add("change-task-form");
-                        inputContainer.classList.add("form", "change-form")
-                        titleInput.classList.add("title-input");
-                        startInput.classList.add("start-input");
-                        durationInput.classList.add("duration-input");
-                        // endInput.classList.add("end-input");
-                        colorInput.classList.add("color-input");
-                        formBtn.classList.add("form-button");
-                        closeBtn.classList.add("close-add-form");
-                        formInput.classList.add("form-input");
-                        formTitle.classList.add("form-title");
-                        deleteBtn.classList.add("delete-btn");
+                    labelTitle.classList.add("form-label");
+                    labelStart.classList.add("form-label");
+                    labelDuration.classList.add("form-label");
+                    labelColor.classList.add("form-label");
+                     mainContainer.classList.add("change-task-form");
+                    inputContainer.classList.add("form", "change-form")
+                    titleInput.classList.add("title-input");
+                    startInput.classList.add("start-input");
+                    durationInput.classList.add("duration-input");
+                    // endInput.classList.add("end-input");
+                    colorInput.classList.add("color-input");
+                    formBtn.classList.add("form-button");
+                    closeBtn.classList.add("close-add-form");
+                    formInput.classList.add("form-input");
+                    formTitle.classList.add("form-title");
+                    deleteBtn.classList.add("delete-btn");
         
-                        labelTitle.innerText = "Title";
-                        labelStart.innerText = "Start";
-                        labelDuration.innerText = "Duration";
-                        labelColor.innerText = "Color";
+                    labelTitle.innerText = "Title";
+                    labelStart.innerText = "Start";
+                    labelDuration.innerText = "Duration";
+                    labelColor.innerText = "Color";
         
-                        formTitle.innerText = "Make your changes";
-                        deleteBtn.innerText = "Delete";
-                        closeBtn.innerText = "x";
-                        formBtn.innerText = "Submit"
-                        titleInput.type = "text";
-                        startInput.type = "time";
-                        durationInput.type = "number";
-                        // endInput;
-                        colorInput.type = "color";
-                        formBtn.type = "submit";
-                        closeBtn.type = "button";
-                        titleInput.value = titleText.innerText;
-                        durationInput.value = duration;
-                        colorInput.value = "#E2ECF5";
-                        startInput.value = `${padTo2Digits(startHours)}:${padTo2Digits(startMinutes)}`;
-                        colorInput.addEventListener("change", () => {
-                            el.style.background = `${colorInput.value}50`;
-                            el.style.borderLeft = `3px solid ${colorInput.value}`
-                        })
-                        deleteBtn.onclick = (e) => {
-                            e.stopPropagation;
-                            events = events.filter(i => events.indexOf(i) !== arrFromNode.indexOf(el))
-                            .sort(function (a, b) { return a.start - b.start });
+                    formTitle.innerText = "Make your changes";
+                    deleteBtn.innerText = "Delete";
+                    closeBtn.innerText = "x";
+                    formBtn.innerText = "Submit"
+                    titleInput.type = "text";
+                    startInput.type = "time";
+                    durationInput.type = "number";
+                    // endInput;
+                    colorInput.type = "color";
+                    formBtn.type = "submit";
+                    closeBtn.type = "button";
+                    titleInput.value = titleText.innerText;
+                    durationInput.value = duration;
+                    colorInput.value = "#E2ECF5";
+                    startInput.value = `${padTo2Digits(startHours)}:${padTo2Digits(startMinutes)}`;
+                    colorInput.addEventListener("change", () => {
+                        el.style.background = `${colorInput.value}50`;
+                        el.style.borderLeft = `3px solid ${colorInput.value}`
+                    })
+                    deleteBtn.onclick = (e) => {
+                        e.stopPropagation;
+                        events = events.filter(i => events.indexOf(i) !== arrFromNode.indexOf(el))
+                        .sort(function (a, b) { return a.start - b.start });
                 
-                            this.toDoList = new ToDosList(events);
+                        this.toDoList = new ToDosList(events);
                     
-                            this.renderToDoList(this.toDoList.toDosArr);
-                            toDos = new ToDosList(events);
-                            modalElement.classList.remove("modal-active");
-                            mainContainer.innerHTML = " ";
-                        }
+                        this.renderToDoList(this.toDoList.toDosArr);
+                        toDos = new ToDosList(events);
+                        modalElement.classList.remove("modal-active");
+                        mainContainer.innerHTML = " ";
+                    }
                         
-                        formBtn.onclick = (e) => {
+                    formBtn.onclick = (e) => {
         
-                            let hours = startInput.value.slice(0, 2);
-                            let minutes = startInput.value.slice(3);
-                            minutes = +minutes;
+                        let hours = startInput.value.slice(0, 2);
+                        let minutes = startInput.value.slice(3);
+                        minutes = +minutes;
                         
-                            let startTime = (+hours - 8) * 60 + minutes;
-                            events.forEach((item) => {
-                                if(events.indexOf(item) === arrFromNode.indexOf(el)) {
-                                    item.title = titleInput.value;
-                                    item.start = startTime;
-                                    item.duration = +durationInput.value;
+                        let startTime = (+hours - 8) * 60 + minutes;
+                        events.forEach((item) => {
+                            if(events.indexOf(item) === arrFromNode.indexOf(el)) {
+                                item.title = titleInput.value;
+                                item.start = startTime;
+                                item.duration = +durationInput.value;
+                            }
+                        })
+                        const newList = new ToDosList(events);
+
+                        // this.renderToDos = new RenderToDos(this.toDoList, this.renderHours);
+                        this.renderToDoList(newList.toDosArr); 
+                 
+                        modalElement.classList.remove("modal-active");
+                        mainContainer.innerHTML = " ";
+                        e.preventDefault();
+                    }
+                     // inputs logic
+                    closeBtn.onclick = (e) => {
+                        e.preventDefault();
+                        // mainContainer.classList.remove('change-task-form-active');
+                        modalElement.classList.remove("modal-active");
+                        inputContainer.style.display = "none";
+                    }
         
-                                }
-                            })
-
-
-                            const newList = new ToDosList(events);
-                                
-                            // this.renderToDos = new RenderToDos(this.toDoList, this.renderHours);
-                            this.renderToDoList(newList.toDosArr); 
-                        
-                            modalElement.classList.remove("modal-active");
-                            mainContainer.innerHTML = " ";
-                            e.preventDefault();
-                        }
-
-                        // inputs logic
-                        closeBtn.onclick = (e) => {
-                            e.preventDefault();
-                            // mainContainer.classList.remove('change-task-form-active');
-                            modalElement.classList.remove("modal-active");
-                            inputContainer.style.display = "none";
-                        }
-        
-                        inputContainer.style.display = "block";
-                        labelTitle.append(titleInput);
-                        labelStart.append(startInput);
-                        labelDuration.append(durationInput);
-                        labelColor.append(colorInput);
-                        formInput.append(labelTitle, labelStart, labelDuration, labelColor, formBtn,  deleteBtn);
-                        inputContainer.append(formTitle, formInput, closeBtn);
-                        mainContainer.append(inputContainer)
-                        modalElement.append(mainContainer);
-                        modalElement.classList.add("modal-active");
-
-
-                
+                inputContainer.style.display = "block";
+                labelTitle.append(titleInput);
+                labelStart.append(startInput);
+                labelDuration.append(durationInput);
+                labelColor.append(colorInput);
+                formInput.append(labelTitle, labelStart, labelDuration, labelColor, formBtn,  deleteBtn);
+                inputContainer.append(formTitle, formInput, closeBtn);
+                mainContainer.append(inputContainer)
+                modalElement.append(mainContainer);
+                modalElement.classList.add("modal-active");      
+            })
         })
-
-
-    })
-     }
+    }
 }
 class Actions {
     constructor(toDos, renderToDos, renderTimeGrid) {
@@ -364,7 +352,6 @@ class Actions {
             let colorInput = document.querySelector(".color-input");
             let formBtn = document.querySelector(".form-button");
             let closeBtn = document.querySelector(".close-add-form");
-
 
             startInput.value = "08:00";
 
